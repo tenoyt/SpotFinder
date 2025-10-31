@@ -1,4 +1,4 @@
-package com.example.spotfinder
+package com.example.spotfinder.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

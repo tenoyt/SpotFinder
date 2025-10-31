@@ -3,6 +3,7 @@ package com.example.spotfinder
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.spotfinder.databinding.ActivityMapsBinding
+import com.example.spotfinder.model.Location
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback

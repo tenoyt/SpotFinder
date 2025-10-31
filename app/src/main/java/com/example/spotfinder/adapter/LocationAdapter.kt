@@ -1,10 +1,12 @@
-package com.example.spotfinder
+package com.example.spotfinder.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.spotfinder.model.Location
+import com.example.spotfinder.databinding.ItemLocationBinding
 
 /**
  * RecyclerView adapter for displaying a list of locations
