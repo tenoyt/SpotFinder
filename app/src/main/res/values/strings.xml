@@ -1,0 +1,102 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">SpotFinder</string>
+
+    <!-- Activity Titles -->
+    <string name="title_main">SpotFinder</string>
+    <string name="title_add_location">Add New Location</string>
+    <string name="title_edit_location">Edit Location</string>
+    <string name="title_map_view">Map View</string>
+
+    <!-- Button Labels -->
+    <string name="button_search">Search</string>
+    <string name="button_view_all">View All</string>
+    <string name="button_add_location">Add Location</string>
+    <string name="button_view_map">View Map</string>
+    <string name="button_edit">Edit</string>
+    <string name="button_delete">Delete</string>
+    <string name="button_save">Save</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_add">Add Location</string>
+    <string name="button_update">Update Location</string>
+
+    <!-- Input Hints -->
+    <string name="hint_search">Enter address</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_latitude">Latitude</string>
+    <string name="hint_longitude">Longitude</string>
+
+    <!-- Labels -->
+    <string name="label_search_location">Search Location</string>
+    <string name="label_location_details">Location Details</string>
+    <string name="label_address">Address</string>
+    <string name="label_latitude">Latitude</string>
+    <string name="label_longitude">Longitude</string>
+    <string name="label_coordinates">Coordinates</string>
+    <string name="label_all_locations">All Locations</string>
+
+    <!-- Helper Text -->
+    <string name="helper_latitude_range">Range: -90 to 90</string>
+    <string name="helper_longitude_range">Range: -180 to 180</string>
+    <string name="helper_tip_title">Tip</string>
+    <string name="helper_tip_message">You can find coordinates by searching the address on Google Maps and clicking on the location.</string>
+
+    <!-- Status Messages -->
+    <string name="status_showing_locations">Showing %d location(s)</string>
+    <string name="status_found_locations">Found %d location(s)</string>
+    <string name="status_no_locations">Showing 0 location(s)</string>
+
+    <!-- Empty State -->
+    <string name="empty_state_title">No Locations Found</string>
+    <string name="empty_state_message">Try a different search or add a new location</string>
+
+    <!-- Loading State -->
+    <string name="loading_message">Loading locations...</string>
+
+    <!-- Sample Data -->
+    <string name="sample_address">Sample Address</string>
+    <string name="sample_coordinates">Lat: 43.6532, Lng: -79.3832</string>
+
+    <!-- Success Messages -->
+    <string name="success_location_added">Location added successfully</string>
+    <string name="success_location_updated">Location updated successfully</string>
+    <string name="success_location_deleted">Location deleted successfully</string>
+
+    <!-- Error Messages -->
+    <string name="error_search_empty">Please enter a search query</string>
+    <string name="error_no_results">No locations found matching \'%s\'</string>
+    <string name="error_add_location">Failed to add location</string>
+    <string name="error_update_location">Failed to update location</string>
+    <string name="error_delete_location">Failed to delete location</string>
+    <string name="error_address_required">Address is required</string>
+    <string name="error_latitude_required">Latitude is required</string>
+    <string name="error_latitude_invalid">Invalid latitude format</string>
+    <string name="error_latitude_range">Latitude must be between -90 and 90</string>
+    <string name="error_longitude_required">Longitude is required</string>
+    <string name="error_longitude_invalid">Invalid longitude format</string>
+    <string name="error_longitude_range">Longitude must be between -180 and 180</string>
+
+    <!-- Confirmation Dialogs -->
+    <string name="dialog_delete_title">Delete Location</string>
+    <string name="dialog_delete_message">Are you sure you want to delete \'%s\'?</string>
+    <string name="dialog_delete_positive">Delete</string>
+    <string name="dialog_delete_negative">Cancel</string>
+
+    <!-- Menu Items -->
+    <string name="menu_search">Search</string>
+    <string name="menu_view_all">View All</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="menu_about">About</string>
+
+    <!-- Map Messages -->
+    <string name="map_title_single">Location: %s</string>
+    <string name="map_title_multiple">All Locations (%d)</string>
+
+    <!-- Content Descriptions for Accessibility -->
+    <string name="cd_search_icon">Search icon</string>
+    <string name="cd_add_icon">Add location icon</string>
+    <string name="cd_map_icon">Map icon</string>
+    <string name="cd_edit_icon">Edit icon</string>
+    <string name="cd_delete_icon">Delete icon</string>
+    <string name="cd_location_icon">Location icon</string>
+</resources>
