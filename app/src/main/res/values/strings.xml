@@ -19,6 +19,7 @@
     <string name="button_cancel">Cancel</string>
     <string name="button_add">Add Location</string>
     <string name="button_update">Update Location</string>
+    <string name="button_start_navigation">Start Navigation</string>
 
     <!-- Input Hints -->
     <string name="hint_search">Enter address</string>

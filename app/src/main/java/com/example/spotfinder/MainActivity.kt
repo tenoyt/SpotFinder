@@ -2,7 +2,10 @@ package com.example.spotfinder
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.spotfinder.adapter.LocationAdapter
@@ -37,6 +40,63 @@ class MainActivity : AppCompatActivity() {
 
         // Load all locations initially
         loadAllLocations()
+    }
+
+    /**
+     * Inflate the options menu
+     */
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    /**
+     * Handle menu item selections
+     */
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_search -> {
+                // Focus on search field
+                binding.editTextSearch.requestFocus()
+                true
+            }
+            R.id.action_view_all -> {
+                // Show all locations
+                loadAllLocations()
+                binding.editTextSearch.text?.clear()
+                true
+            }
+            R.id.action_refresh -> {
+                // Refresh the location list
+                loadAllLocations()
+                Toast.makeText(this, "Refreshed", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.action_about -> {
+                // Show about dialog
+                showAboutDialog()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    /**
+     * Shows an about dialog with app information
+     */
+    private fun showAboutDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("About SpotFinder")
+            .setMessage("SpotFinder v1.0\n\n" +
+                    "A location management application for the Greater Toronto Area.\n\n" +
+                    "Features:\n" +
+                    "• Search 100+ GTA locations\n" +
+                    "• Add, edit, and delete locations\n" +
+                    "• View locations on Google Maps\n" +
+                    "• SQLite database storage\n\n" +
+                    "Developed for Android by 10oy")
+            .setPositiveButton("OK", null)
+            .show()
     }
 
     /**
@@ -153,7 +213,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun deleteLocation(location: Location) {
         // Show confirmation dialog
-        androidx.appcompat.app.AlertDialog.Builder(this)
+        AlertDialog.Builder(this)
             .setTitle(R.string.dialog_delete_title)
             .setMessage(getString(R.string.dialog_delete_message, location.address))
             .setPositiveButton(R.string.dialog_delete_positive) { _, _ ->

@@ -1,6 +1,9 @@
 package com.example.spotfinder
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.spotfinder.databinding.ActivityMapsBinding
 import com.example.spotfinder.model.Location
@@ -15,6 +18,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 /**
  * Activity for displaying locations on Google Maps
  * Can display a single selected location or multiple locations
+ * Provides navigation option for single locations
  */
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -35,10 +39,65 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         selectedLocation = intent.getParcelableExtra("selected_location")
         locationsList = intent.getParcelableArrayListExtra("locations")
 
+        // Setup navigation button
+        setupNavigationButton()
+
         // Initialize map
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+    }
+
+    /**
+     * Sets up the navigation button visibility and click listener
+     * Only visible when a single location is selected
+     */
+    private fun setupNavigationButton() {
+        if (selectedLocation != null) {
+            // Show navigation button for single location
+            binding.fabStartNavigation.show()
+            binding.fabStartNavigation.setOnClickListener {
+                startNavigation()
+            }
+        } else {
+            // Hide navigation button for multiple locations
+            binding.fabStartNavigation.hide()
+        }
+    }
+
+    /**
+     * Opens Google Maps app with navigation to the selected location
+     * If Google Maps is not installed, opens in browser
+     */
+    private fun startNavigation() {
+        selectedLocation?.let { location ->
+            // Create URI for Google Maps navigation
+            val uri = Uri.parse(
+                "google.navigation:q=${location.latitude},${location.longitude}&mode=d"
+            )
+
+            val mapIntent = Intent(Intent.ACTION_VIEW, uri).apply {
+                setPackage("com.google.android.apps.maps")
+            }
+
+            // Check if Google Maps is installed
+            if (mapIntent.resolveActivity(packageManager) != null) {
+                startActivity(mapIntent)
+            } else {
+                // Fallback to browser if Google Maps is not installed
+                val browserUri = Uri.parse(
+                    "https://www.google.com/maps/dir/?api=1&destination=${location.latitude},${location.longitude}"
+                )
+                val browserIntent = Intent(Intent.ACTION_VIEW, browserUri)
+                startActivity(browserIntent)
+            }
+        } ?: run {
+            Toast.makeText(
+                this,
+                "No location selected for navigation",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     /**
